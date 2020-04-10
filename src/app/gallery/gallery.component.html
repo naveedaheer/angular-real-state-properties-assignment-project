@@ -1,0 +1,6 @@
+
+
+
+<mat-grid-list cols="{{galleryLength}}" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let g of gallery"><a [routerLink] = "['/galleryDetail', g._id ]"><img src = "{{g.flag}}"></a></mat-grid-tile>
+</mat-grid-list>
