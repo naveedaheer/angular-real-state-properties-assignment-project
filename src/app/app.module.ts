@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PropertyListComponent } from './properties/property-list/property-list.component';
 import {MatCardModule} from '@angular/material/card';
+import { PropertyFormComponent } from './property-form/property-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PropertyListComponent
+    PropertyListComponent,
+    PropertyFormComponent
   ],
   imports: [
     BrowserModule,
