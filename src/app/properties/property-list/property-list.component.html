@@ -1,18 +1,206 @@
 <div>
-  <mat-card class="card-style">
-    <mat-card-header>
-      <mat-card-title>Property List View</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-    </mat-card-content>
-  </mat-card>
+  <button (click)="listView=true" *ngIf="!listView">List View</button><button (click)="listView=false"
+    *ngIf="listView">Grid View</button>
+</div>
+<div *ngIf="listView" style="width: 80vw;">
+  <div>
+    <mat-card class="card-style">
+      <mat-card-header>
+        <mat-card-title>
+          <h1>Property List View</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
 
-  <mat-card class="card-style">
-    <mat-card-header>
-      <mat-card-title>Property List View</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+    <div>
+    </div>
+    <div>
+      <mat-card class="card-style">
+        <mat-card-content fxLayout="row" fxLayoutGap="40px">
+          <div>
+            <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+          </div>
+          <div fxLayout="column">
+            <div>
+              <h1>Hello World</h1>
+              <h2>Somewhere in the world</h2>
+            </div>
+            <div class="example-button-row">
+              <button mat-stroked-button>Basic</button>
+            </div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+
+
+  <div>
+    <mat-card class="card-style">
+      <mat-card-content fxLayout="row" fxLayoutGap="40px">
+        <div>
+          <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+        </div>
+        <div fxLayout="column">
+          <div>
+            <h1>Hello World</h1>
+            <h2>Somewhere in the world</h2>
+          </div>
+          <div >
+            <button>submit</button>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+
+  <div>
+    <mat-card class="card-style">
+      <mat-card-content fxLayout="row" fxLayoutGap="40px">
+        <div>
+          <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+        </div>
+        <div fxLayout="column">
+          <div>
+            <h1>Hello World</h1>
+            <h2>Somewhere in the world</h2>
+          </div>
+          <div>
+            <button>submit</button>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
 
 </div>
+
+<div *ngIf="!listView" fxLayout="row wrap" fxLayoutAlign="space-around" style="width: 80vw;">
+
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <h1>Hello World</h1>
+          <h2>Somewhere in the world</h2>
+        </div>
+        <div>
+          <button>submit</button>
+          <button>mmm</button>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <h1>Hello World</h1>
+          <h2>Somewhere in the world</h2>
+        </div>
+        <div>
+          <button>submit</button>
+          <button>mmm</button>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <h1>Hello World</h1>
+          <h2>Somewhere in the world</h2>
+        </div>
+        <div>
+          <button>submit</button>
+          <button>mmm</button>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <h1>Hello World</h1>
+          <h2>Somewhere in the world</h2>
+        </div>
+        <div>
+          <button>submit</button>
+          <button>mmm</button>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <h1>Hello World</h1>
+          <h2>Somewhere in the world</h2>
+        </div>
+        <div>
+          <button>submit</button>
+          <button>mmm</button>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content fxLayout="column">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <h1>Hello World</h1>
+          <h2>Somewhere in the world</h2>
+        </div>
+        <div>
+          <button>submit</button>
+          <button>mmm</button>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
+
+
+
+
+
+
+

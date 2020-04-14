@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "real-state"
+  "defaultProject": "real-state",
+  "cli": {
+    "analytics": "3c87854f-da2d-4168-ae5a-010fbf20ce1d"
+  }
 }
