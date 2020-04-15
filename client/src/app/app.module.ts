@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PropertyService } from './services/property.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -41,6 +42,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     HttpClientModule,
     MatButtonModule,
+    ReactiveFormsModule
   ],
 
   providers: [PropertyService],
