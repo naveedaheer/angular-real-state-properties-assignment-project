@@ -1,6 +1,6 @@
 <div class="main">
   <h3 fxLayoutAlign="center center" style="margin-bottom:50px">Add Property Form</h3>
-  <form fxLayout="column" fxLayoutGap="30px">
+  <form [formGroup]="profileForm" fxLayout="column" fxLayoutGap="30px">
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
       <input matInput #city maxlength="30" placeholder="Ex. Gzira, Sliema ...">
@@ -33,6 +33,5 @@
     </mat-form-field>
 
     <button mat-raised-button color="primary">Submit</button>
-
 </form>
   </div>
