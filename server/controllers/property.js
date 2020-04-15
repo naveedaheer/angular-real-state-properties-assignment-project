@@ -19,6 +19,25 @@ getProperties = async (req, res) => {
     });
 };
 
+getPropertyById = async (req, res) => {
+  await Property
+  .find({_id: req.params.id})
+  .then((item) => {
+    return res.status(200).json({
+      success: true,
+      property: item
+    });
+  })
+  //if there's an issue with getting then give this error
+  .catch((error) => {
+    return res.status(400).json({
+      success: false,
+      error,
+      message: "Something went wrong!",
+    });
+  });
+};
+
 addProperty = async (req, res) => {
   const body = req.body;
   if (!body) {
@@ -78,6 +97,7 @@ deleteProperty = async (req, res) => {
 
 module.exports = {
     getProperties,
+    getPropertyById,
     addProperty,
     updateProperty,
     deleteProperty
