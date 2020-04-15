@@ -2,6 +2,22 @@
   <button (click)="listView=true" *ngIf="!listView">List View</button><button (click)="listView=false"
     *ngIf="listView">Grid View</button>
 </div>
+
+<div fxLayout="row" fxLayoutAlign="start center">
+  <mat-form-field appearance="standard" class="search-input">
+      <input #serachText matInput placeholder="Search by city name">
+      <div matSuffix fxLayout="row" fxLayoutAlign="flex-end center">
+          <button mat-icon-button *ngIf="serachText.value.trim().length > 0" aria-label="Clear" (click)="serachText.value = ''; filterResults = properties;" class="btn-sm clear">
+              <mat-icon class="">close</mat-icon>
+          </button>
+          <button mat-icon-button (click)="searchByCity(serachText.value)">
+              <mat-icon>search</mat-icon>
+          </button>
+      </div>
+  </mat-form-field>
+
+</div>
+
 <div *ngIf="listView" style="width: 80vw;">
   <mat-card class="card-style">
     <mat-card-header>
@@ -39,7 +55,7 @@
 
 <div *ngIf="!listView" style="width: 80vw;" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
   <div fxLayout="row wrap" fxLayoutGap="20px">
-    <mat-card *ngFor="let property of properties | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize">
+    <mat-card *ngFor="let property of filterResults | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize">
       <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
         <div>
           <img
