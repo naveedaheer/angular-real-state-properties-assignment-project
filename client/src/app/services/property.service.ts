@@ -13,4 +13,8 @@ export class PropertyService {
     return this.http.get(this.baseUrl + 'get-properties');
   }
 
+  getPropertyById(id) {
+    return this.http.get(this.baseUrl + 'get-property/' + id );
+  }
+
 }
