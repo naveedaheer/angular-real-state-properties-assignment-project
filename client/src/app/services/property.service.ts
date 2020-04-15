@@ -14,7 +14,11 @@ export class PropertyService {
   }
 
   getPropertyById(id) {
-    return this.http.get(this.baseUrl + 'get-property/' + id );
+    return this.http.get(this.baseUrl + 'get-property/' + id);
+  }
+
+  deleteProperty(id) {
+    return this.http.delete(this.baseUrl + 'delete-property/' + id);
   }
 
 }
