@@ -1,32 +1,38 @@
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>Standard form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
+<div class="main">
+  <h3 fxLayoutAlign="center center" style="margin-bottom:50px">Add Property Form</h3>
+  <form fxLayout="column" fxLayoutGap="30px">
+    <mat-form-field class="example-full-width">
+      <mat-label>City</mat-label>
+      <input matInput #city maxlength="30" placeholder="Ex. Gzira, Sliema ...">
+      <mat-hint align="start"><strong>City name</strong> </mat-hint>
+      <mat-hint align="end">{{city.value.length}} / 30</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Type</mat-label>
+      <input matInput placeholder="Ex. Appartment ...">
+    </mat-form-field>
 
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>Standard form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
+    <mat-form-field appearance="standard">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" placeholder="1500000">
+    </mat-form-field>
 
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>Standard form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
+    <mat-form-field appearance="standard">
+      <mat-label>No. of bedrooms</mat-label>
+      <input matInput type="number" placeholder="2">
+    </mat-form-field>
 
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Message</mat-label>
-    <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
-    <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
-    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-  </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Ref. Number</mat-label>
+      <input matInput type="number" placeholder="15">
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Description</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Submit</button>
+
 </form>
+  </div>
