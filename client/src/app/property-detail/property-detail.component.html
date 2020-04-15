@@ -1,10 +1,16 @@
 <div>
   <mat-card>
-    <a mat-button [routerLink]="['']"><span class="material-icons">
-      arrow_back
-    </span> Back</a>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <a mat-button [routerLink]="['']" color="primary"><span class="material-icons">
+          arrow_back
+        </span> Back</a>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn" (click)="deleteProperty()">Delete</button>
+      </div>
+    </div>
 
-    <mat-card-content fxLayout="column" fxLayoutGap="20px">
+    <mat-card-content *ngIf="property" fxLayout="column" fxLayoutGap="20px">
       <div>
         <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" height="400px"
           width="800px">
