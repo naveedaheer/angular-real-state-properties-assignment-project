@@ -1,23 +1,35 @@
-<div >
-    <mat-card >
-        <mat-card-content fxLayout="column" fxLayoutGap="20px">
-            <div>
-                <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale"
-                    height="400px" width="800px">
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-around" >
-                <div>
-                    <div> City : Karachi</div>
-                    <div> Price : 900000</div>
-                    <div> Referance of Number : 2468</div>
+<div>
+  <mat-card>
+    <mat-card-content fxLayout="column" fxLayoutGap="20px">
+      <div>
+        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" height="400px"
+          width="800px">
+      </div>
+      <div fxLayoutAlign="center">
+        <table>
+          <tr>
+            <td>City </td>
+            <td>{{property.city}}</td>
+          </tr>
+          <tr>
+            <td>Price </td>
+            <td>{{property.price}}</td>
+          </tr>
+          <tr>
+            <td> Referance of Number </td>
+            <td>{{property.refNumber}}</td>
+          </tr>
+          <tr>
+            <td>Nubmer Of Bedrooms </td>
+            <td>{{property.noOfBedrooms}}</td>
+          </tr>
+          <tr>
+            <td>Description </td>
+            <td>{{property.description}}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-card-content>
 
-                </div>
-                <div>
-                    <div> No Of Bedrooms : 3</div>
-                    <div> Description : There are many variations <br>of passages of Lorem Ipsum available.</div>
-                </div>
-            </div>
-        </mat-card-content>
-
-    </mat-card>
+  </mat-card>
 </div>
