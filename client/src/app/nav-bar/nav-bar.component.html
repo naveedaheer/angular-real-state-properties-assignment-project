@@ -1,3 +1,11 @@
-<mat-toolbar  class="primary">
-    <span>My-app</span>   
+<mat-toolbar  class="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <span></span>
+    <div fxLayoutGap="80px">
+      <button mat-raised-button color="primary" [routerLink]="['']">Home</button>
+      <button mat-raised-button color="primary" [routerLink]="['']">Property List</button>
+      <button mat-raised-button color="primary" [routerLink]="['add-property']">Add Property</button>
+    </div>
+    <div>
+
+    </div>
 </mat-toolbar>
