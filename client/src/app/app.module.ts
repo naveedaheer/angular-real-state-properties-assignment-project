@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {MatToolbarModule } from '@angular/material/toolbar';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -11,12 +13,19 @@ import { PropertyFormComponent } from './property-form/property-form.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { PropertyDetailComponent } from './property-detail/property-detail.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+		
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PropertyListComponent,
-    PropertyFormComponent
+    PropertyFormComponent,
+    PropertyDetailComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +35,12 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
+    
+  
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })
