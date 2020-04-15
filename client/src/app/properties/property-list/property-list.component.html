@@ -37,165 +37,44 @@
     </div>
   </div>
 
-
-  <div>
-    <mat-card class="card-style">
-      <mat-card-content fxLayout="row" fxLayoutGap="40px">
-        <div>
-          <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-        </div>
-        <div fxLayout="column">
-          <div>
-            <h1>Hello World</h1>
-            <h2>Somewhere in the world</h2>
-          </div>
-          <div >
-            <button>submit</button>
-          </div>
-        </div>
-      </mat-card-content>
-
-    </mat-card>
-  </div>
-
-
-  <div>
-    <mat-card class="card-style">
-      <mat-card-content fxLayout="row" fxLayoutGap="40px">
-        <div>
-          <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-        </div>
-        <div fxLayout="column">
-          <div>
-            <h1>Hello World</h1>
-            <h2>Somewhere in the world</h2>
-          </div>
-          <div>
-            <button>submit</button>
-          </div>
-        </div>
-      </mat-card-content>
-
-    </mat-card>
-  </div>
-
 </div>
 
-<div *ngIf="!listView" fxLayout="row wrap" fxLayoutAlign="space-around" style="width: 80vw;">
+<div *ngIf="!listView" fxLayout="row wrap" fxLayoutGap="20px" style="width: 80vw;">
 
-  <mat-card>
-    <mat-card-content fxLayout="column">
+  <mat-card *ngFor="let property of properties;">
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
       <div>
-        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+        <img [src]="property.image ? property.image : 'https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale'" width="300px">
       </div>
       <div fxLayout="column">
-        <div>
-          <h1>Hello World</h1>
-          <h2>Somewhere in the world</h2>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <div>
+            <p>
+              City: {{property.city}}
+            </p>
+            <p>
+              Type: {{property.type}}
+            </p>
+            <p>
+              Price: {{property.price}}
+            </p>
+          </div>
+          <div>
+            <p>
+              No. Of Bedrooms : {{property.noOfBedrooms}}
+            </p>
+            <p>Ref. Number: {{property.refNumber}}</p>
+          </div>
         </div>
         <div>
-          <button>submit</button>
-          <button>mmm</button>
+          {{property.description}}
         </div>
+        <button mat-stroked-button color="primary">View Detail</button>
       </div>
     </mat-card-content>
 
   </mat-card>
 
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      <div>
-        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-      </div>
-      <div fxLayout="column">
-        <div>
-          <h1>Hello World</h1>
-          <h2>Somewhere in the world</h2>
-        </div>
-        <div>
-          <button>submit</button>
-          <button>mmm</button>
-        </div>
-      </div>
-    </mat-card-content>
-
-  </mat-card>
-
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      <div>
-        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-      </div>
-      <div fxLayout="column">
-        <div>
-          <h1>Hello World</h1>
-          <h2>Somewhere in the world</h2>
-        </div>
-        <div>
-          <button>submit</button>
-          <button>mmm</button>
-        </div>
-      </div>
-    </mat-card-content>
-
-  </mat-card>
-
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      <div>
-        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-      </div>
-      <div fxLayout="column">
-        <div>
-          <h1>Hello World</h1>
-          <h2>Somewhere in the world</h2>
-        </div>
-        <div>
-          <button>submit</button>
-          <button>mmm</button>
-        </div>
-      </div>
-    </mat-card-content>
-
-  </mat-card>
-
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      <div>
-        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-      </div>
-      <div fxLayout="column">
-        <div>
-          <h1>Hello World</h1>
-          <h2>Somewhere in the world</h2>
-        </div>
-        <div>
-          <button>submit</button>
-          <button>mmm</button>
-        </div>
-      </div>
-    </mat-card-content>
-
-  </mat-card>
-
-  <mat-card>
-    <mat-card-content fxLayout="column">
-      <div>
-        <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-      </div>
-      <div fxLayout="column">
-        <div>
-          <h1>Hello World</h1>
-          <h2>Somewhere in the world</h2>
-        </div>
-        <div>
-          <button>submit</button>
-          <button>mmm</button>
-        </div>
-      </div>
-    </mat-card-content>
-
-  </mat-card>
 </div>
 
 

@@ -2,3 +2,7 @@
   width: 60vw;
   margin-bottom: 20px;
 }
+
+.mat-card-content {
+  height: 100%;
+}
