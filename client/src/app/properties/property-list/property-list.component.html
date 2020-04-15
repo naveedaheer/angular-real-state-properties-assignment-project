@@ -3,7 +3,6 @@
     *ngIf="listView">Grid View</button>
 </div>
 <div *ngIf="listView" style="width: 80vw;">
-  <div>
     <mat-card class="card-style">
       <mat-card-header>
         <mat-card-title>
@@ -35,7 +34,6 @@
 
       </mat-card>
     </div>
-  </div>
 
 </div>
 
@@ -69,7 +67,7 @@
         <div>
           {{property.description}}
         </div>
-        <button mat-stroked-button color="primary">View Detail</button>
+        <button mat-stroked-button color="primary" [routerLink]="['property-detail', property._id]">View Detail</button>
       </div>
     </mat-card-content>
 
