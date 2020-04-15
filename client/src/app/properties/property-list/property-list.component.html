@@ -37,9 +37,8 @@
 
 </div>
 
-<div *ngIf="!listView" style="width: 80vw;">
+<div *ngIf="!listView" style="width: 80vw;" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
   <div fxLayout="row wrap" fxLayoutGap="20px">
-
     <mat-card *ngFor="let property of properties | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize">
       <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
         <div>
