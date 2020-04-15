@@ -8,6 +8,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PropertyListComponent } from './properties/property-list/property-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { PropertyFormComponent } from './property-form/property-form.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,10 @@ import { PropertyFormComponent } from './property-form/property-form.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
