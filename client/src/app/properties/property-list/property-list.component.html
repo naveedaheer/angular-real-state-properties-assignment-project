@@ -3,50 +3,53 @@
     *ngIf="listView">Grid View</button>
 </div>
 <div *ngIf="listView" style="width: 80vw;">
+  <mat-card class="card-style">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Property List View</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+    </mat-card-content>
+  </mat-card>
+  <div>
+  </div>
+  <div>
     <mat-card class="card-style">
-      <mat-card-header>
-        <mat-card-title>
-          <h1>Property List View</h1>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-
-      </mat-card-content>
-    </mat-card>
-    <div>
-    </div>
-    <div>
-      <mat-card class="card-style">
-        <mat-card-content fxLayout="row" fxLayoutGap="40px">
+      <mat-card-content fxLayout="row" fxLayoutGap="40px">
+        <div>
+          <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+        </div>
+        <div fxLayout="column">
           <div>
-            <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
+            <h1>Hello World</h1>
+            <h2>Somewhere in the world</h2>
           </div>
-          <div fxLayout="column">
-            <div>
-              <h1>Hello World</h1>
-              <h2>Somewhere in the world</h2>
-            </div>
-            <div class="example-button-row">
-              <button mat-stroked-button>Basic</button>
-            </div>
+          <div class="example-button-row">
+            <button mat-stroked-button>Basic</button>
           </div>
-        </mat-card-content>
+        </div>
+      </mat-card-content>
 
-      </mat-card>
-    </div>
+    </mat-card>
+  </div>
 
 </div>
 
-<div *ngIf="!listView" fxLayout="row wrap" fxLayoutGap="20px" style="width: 80vw;">
+<div *ngIf="!listView" style="width: 80vw;">
+  <div fxLayout="row wrap" fxLayoutGap="20px">
 
-  <mat-card *ngFor="let property of properties;">
-    <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
-      <div>
-        <img [src]="property.image ? property.image : 'https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale'" width="300px">
-      </div>
-      <div fxLayout="column">
-        <div fxLayout="row" fxLayoutAlign="space-between">
-          <div>
+    <mat-card *ngFor="let property of properties | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize">
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+        <div>
+          <img
+          [src]="property.image ? property.image : 'https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale'"
+          width="300px">
+        </div>
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <div>
             <p>
               City: {{property.city}}
             </p>
@@ -70,14 +73,9 @@
         <button mat-stroked-button color="primary" [routerLink]="['property-detail', property._id]">View Detail</button>
       </div>
     </mat-card-content>
-
   </mat-card>
+</div>
+  <mat-paginator [length]="properties.length" [pageSize]="pageSize" [pageSizeOptions]="[3, 5, 10, 25, 100]" [pageIndex]="pageIndex" (page)="getPaginatorData($event)">
+  </mat-paginator>
 
 </div>
-
-
-
-
-
-
-

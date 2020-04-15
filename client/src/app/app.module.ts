@@ -19,6 +19,7 @@ import { PropertyService } from './services/property.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -42,7 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     HttpClientModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
 
   providers: [PropertyService],
