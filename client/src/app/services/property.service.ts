@@ -21,4 +21,9 @@ export class PropertyService {
     return this.http.delete(this.baseUrl + 'delete-property/' + id);
   }
 
+  addProperty(body) {
+    return this.http.post(this.baseUrl + 'add-property', body);
+  }
+
+
 }
