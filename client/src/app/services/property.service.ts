@@ -25,5 +25,8 @@ export class PropertyService {
     return this.http.post(this.baseUrl + 'add-property', body);
   }
 
+  updateProperty(body, id) {
+    return this.http.put(this.baseUrl + 'update-property/' + id, body);
+  }
 
 }
