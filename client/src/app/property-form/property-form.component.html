@@ -1,6 +1,6 @@
 <div class="main">
   <h3 fxLayoutAlign="center center" style="margin-bottom:50px">Add Property Form</h3>
-  <form [formGroup]="propertForm" fxLayout="column" fxLayoutGap="30px">
+  <form [formGroup]="propertyForm" fxLayout="column" fxLayoutGap="30px">
 
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
@@ -42,10 +42,10 @@
         (change)="uploadImage($event)">
     </div>
 
-    <div *ngIf="propertForm.value.image">
-      <img [src]="propertForm.value.image" width="360px" alt="property image">
+    <div *ngIf="propertyForm.value.image">
+      <img [src]="propertyForm.value.image" width="360px" alt="property image">
     </div>
-
-    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!propertForm.valid">Submit</button>
+    <h2 *ngIf="success" fxLayoutAlign="center" style="color:green">Success!</h2>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!propertyForm.valid">Submit</button>
   </form>
 </div>
