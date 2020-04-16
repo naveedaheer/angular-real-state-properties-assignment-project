@@ -6,7 +6,7 @@ import { PropertyService } from './../../services/property.service';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit {
-  listView = false;
+  listView = true;
   properties = [];
   filterResults = [];
   pageIndex = 0;
@@ -15,14 +15,18 @@ export class PropertyListComponent implements OnInit {
   constructor(private service: PropertyService) { }
 
   ngOnInit(): void {
-    this.service.getProperties().subscribe((res:any) => { this.properties = res.properties; this.filterResults = res.properties });
+    this.service.getProperties().subscribe((res: any) => { this.properties = res.properties; this.filterResults = res.properties });
   }
   getPaginatorData(event) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
   }
 
-  searchByCity(search) {
-    this.filterResults = this.properties.filter(x => x.city.toLowerCase().trim() === search.toLowerCase().trim());
+  search(term, searchBy) {
+    if (searchBy === 'city') {
+      this.filterResults = this.properties.filter(x => x.city.toLowerCase().trim() === term.toLowerCase().trim());
+    } else {
+      this.filterResults = this.properties.filter(x => x.type.toLowerCase().trim() === term.toLowerCase().trim());
+    }
   }
 }

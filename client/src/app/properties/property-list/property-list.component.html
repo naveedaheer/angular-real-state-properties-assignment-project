@@ -1,101 +1,137 @@
-<div>
-  <button (click)="listView=true" *ngIf="!listView">List View</button><button (click)="listView=false"
-    *ngIf="listView">Grid View</button>
-</div>
+<div fxLayout="column" fxLayoutAlign="center center">
 
-<div fxLayout="row" fxLayoutAlign="start center">
-  <mat-form-field appearance="standard" class="search-input">
-    <input #serachText matInput placeholder="Search by city name">
-    <div matSuffix fxLayout="row" fxLayoutAlign="flex-end center">
-      <button mat-icon-button *ngIf="serachText.value.trim().length > 0" aria-label="Clear"
-        (click)="serachText.value = ''; filterResults = properties;" class="btn-sm clear">
-        <mat-icon class="">close</mat-icon>
-      </button>
-      <button mat-icon-button (click)="searchByCity(serachText.value)">
-        <mat-icon>search</mat-icon>
-      </button>
-    </div>
-  </mat-form-field>
-
-</div>
-
-<div *ngIf="listView" style="width: 80vw;">
   <mat-card class="card-style">
-    <mat-card-header>
-      <mat-card-title>
-        <h1>Property List View</h1>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-
+    <mat-card-content fxLayoutAlign="space-between center">
+      <div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-form-field appearance="standard" class="search-input">
+            <input #serachText matInput placeholder="Search by city name">
+            <div matSuffix fxLayout="row" fxLayoutAlign="flex-end center">
+              <button mat-icon-button *ngIf="serachText.value.trim().length > 0" aria-label="Clear"
+                (click)="serachText.value = ''; filterResults = properties;" class="btn-sm clear">
+                <mat-icon class="">close</mat-icon>
+              </button>
+              <button mat-icon-button (click)="search(serachText.value, 'city')">
+                <mat-icon>search</mat-icon>
+              </button>
+            </div>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-form-field appearance="standard" class="search-input">
+            <input #serachType matInput placeholder="Search by type">
+            <div matSuffix fxLayout="row" fxLayoutAlign="flex-end center">
+              <button mat-icon-button *ngIf="serachType.value.trim().length > 0" aria-label="Clear"
+                (click)="serachType.value = ''; filterResults = properties;" class="btn-sm clear">
+                <mat-icon class="">close</mat-icon>
+              </button>
+              <button mat-icon-button (click)="search(serachType.value, 'type')">
+                <mat-icon>search</mat-icon>
+              </button>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+      <h1>Property List View</h1>
+      <div>
+        <button mat-stroked-button (click)="listView=true" *ngIf="!listView">List View </button><button
+          mat-stroked-button (click)="listView=false" *ngIf="listView">Grid View</button>
+      </div>
     </mat-card-content>
   </mat-card>
-  <div>
-  </div>
-  <div>
-    <mat-card class="card-style">
-      <mat-card-content fxLayout="row" fxLayoutGap="40px">
-        <div>
-          <img src="https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale" width="300px">
-        </div>
-        <div fxLayout="column">
-          <div>
-            <h1>Hello World</h1>
-            <h2>Somewhere in the world</h2>
-          </div>
-          <div class="example-button-row">
-            <button mat-stroked-button>Basic</button>
-          </div>
-        </div>
-      </mat-card-content>
 
-    </mat-card>
-  </div>
 
-</div>
-
-<div *ngIf="!listView" style="width: 80vw;" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
-  <div fxLayout="row wrap">
-    <mat-card *ngFor="let property of filterResults | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize" style="margin: 10px;">
-      <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+  <div *ngIf="listView" style="width: 80vw;">
+    <mat-card *ngFor="let property of filterResults | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize"
+      style="margin: 10px;">
+      <mat-card-content fxLayout="row" fxLayoutGap="100px">
         <div>
           <img
             [src]="property.image ? property.image : 'https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale'"
             width="300px">
         </div>
-        <div fxLayout="column">
-          <div fxLayout="row" fxLayoutAlign="space-between">
-            <div>
-              <p>
-                City: {{property.city}}
-              </p>
-              <p>
-                Type: {{property.type}}
-              </p>
-              <p>
-                Price: {{property.price}}
-              </p>
-            </div>
-            <div>
-              <p>
-                No. Of Bedrooms : {{property.noOfBedrooms}}
-              </p>
-              <p>Ref. Number: {{property.refNumber}}</p>
-            </div>
-          </div>
+        <div fxLayout="column" fxLayoutAlign="space-between">
           <div>
-            <p class="description">
-              {{property.description}}
-            </p>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <div>
+                <p>
+                  City: {{property.city}}
+                </p>
+                <p>
+                  Type: {{property.type}}
+                </p>
+                <p>
+                  Price: {{property.price}}
+                </p>
+              </div>
+              <div>
+                <p>
+                  No. Of Bedrooms : {{property.noOfBedrooms}}
+                </p>
+                <p>Ref. Number: {{property.refNumber}}</p>
+              </div>
+            </div>
+            <div>
+              <p class="description">
+                {{property.description}}
+              </p>
+            </div>
           </div>
           <button mat-stroked-button color="primary" [routerLink]="['property-detail', property._id]">View
             Detail</button>
         </div>
       </mat-card-content>
     </mat-card>
+    <mat-paginator [length]="properties.length" [pageSize]="pageSize" [pageSizeOptions]="[3, 5, 10, 25, 100]"
+      [pageIndex]="pageIndex" (page)="getPaginatorData($event)">
+    </mat-paginator>
   </div>
-  <mat-paginator [length]="properties.length" [pageSize]="pageSize" [pageSizeOptions]="[3, 5, 10, 25, 100]"
-    [pageIndex]="pageIndex" (page)="getPaginatorData($event)">
-  </mat-paginator>
 
+
+  <div *ngIf="!listView" style="width: 80vw;" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="50px">
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-card *ngFor="let property of filterResults | slice: pageIndex * pageSize: (pageIndex + 1) * pageSize"
+        style="margin: 10px;">
+        <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+          <div>
+            <img
+              [src]="property.image ? property.image : 'https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale'"
+              width="300px">
+          </div>
+          <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <div>
+                <p>
+                  City: {{property.city}}
+                </p>
+                <p>
+                  Type: {{property.type}}
+                </p>
+                <p>
+                  Price: {{property.price}}
+                </p>
+              </div>
+              <div>
+                <p>
+                  No. Of Bedrooms : {{property.noOfBedrooms}}
+                </p>
+                <p>Ref. Number: {{property.refNumber}}</p>
+              </div>
+            </div>
+            <div>
+              <p class="description">
+                {{property.description}}
+              </p>
+            </div>
+            <button mat-stroked-button color="primary" [routerLink]="['property-detail', property._id]">View
+              Detail</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <mat-paginator [length]="properties.length" [pageSize]="pageSize" [pageSizeOptions]="[3, 5, 10, 25, 100]"
+      [pageIndex]="pageIndex" (page)="getPaginatorData($event)">
+    </mat-paginator>
+
+  </div>
 </div>
