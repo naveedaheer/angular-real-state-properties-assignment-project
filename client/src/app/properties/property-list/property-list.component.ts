@@ -15,9 +15,9 @@ export class PropertyListComponent implements OnInit {
   constructor(private service: PropertyService) { }
 
   ngOnInit(): void {
-    this.service.getProperties().subscribe((res) => { this.properties = res.properties; this.filterResults = res.properties });
+    this.service.getProperties().subscribe((res:any) => { this.properties = res.properties; this.filterResults = res.properties });
   }
-  getPaginatorData(event, resourceView) {
+  getPaginatorData(event) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
   }

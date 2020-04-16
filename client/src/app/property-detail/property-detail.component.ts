@@ -16,7 +16,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getPropertyById(this.propertyId).subscribe(res => {
+    this.service.getPropertyById(this.propertyId).subscribe((res:any) => {
       this.property = res.property[0];
       console.log("this.property", this.property)
     })
