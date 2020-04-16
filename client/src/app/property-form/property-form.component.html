@@ -1,44 +1,51 @@
 <div class="main">
   <h3 fxLayoutAlign="center center" style="margin-bottom:50px">Add Property Form</h3>
-  <form [formGroup]="profileForm" fxLayout="column" fxLayoutGap="30px">
+  <form [formGroup]="propertForm" fxLayout="column" fxLayoutGap="30px">
 
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
-      <input matInput #city maxlength="30" placeholder="Ex. Gzira, Sliema ...">
+      <input formControlName="city" matInput #city maxlength="30" placeholder="Ex. Gzira, Sliema ...">
       <mat-hint align="start"><strong>City name</strong> </mat-hint>
       <mat-hint align="end">{{city.value.length}} / 30</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="standard">
       <mat-label>Type</mat-label>
-      <input matInput placeholder="Ex. Appartment ...">
+      <input formControlName="type" matInput placeholder="Ex. Appartment ...">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
       <mat-label>Price</mat-label>
-      <input matInput type="number" placeholder="1500000">
+      <input formControlName="price" matInput type="number" placeholder="1500000">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
       <mat-label>No. of bedrooms</mat-label>
-      <input matInput type="number" placeholder="2">
+      <input formControlName="noOfBedrooms" matInput type="number" placeholder="2">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
       <mat-label>Ref. Number</mat-label>
-      <input matInput type="number" placeholder="15">
+      <input formControlName="refNumber" matInput type="number" placeholder="15">
     </mat-form-field>
 
     <mat-form-field appearance="standard">
       <mat-label>Description</mat-label>
-      <textarea matInput></textarea>
+      <textarea formControlName="description" matInput #description minlength="20" maxlength="100"></textarea>
+      <mat-error align="start"><strong>min length is 20 and max length is 100</strong> </mat-error>
+      <mat-hint align="end">{{description.value.length}} / 100</mat-hint>
     </mat-form-field>
 
     <div>
       <button mat-stroked-button (click)="fileInput.click()">Upload Image</button>
-      <input type="file" accept="image/*" hidden class="form-control" id="" name="" placeholder="" #fileInput (change)="uploadImage($event)">
+      <input type="file" accept="image/*" hidden class="form-control" id="" name="" placeholder="" #fileInput
+        (change)="uploadImage($event)">
     </div>
 
-    <button mat-raised-button color="primary">Submit</button>
-</form>
-  </div>
+    <div *ngIf="propertForm.value.image">
+      <img [src]="propertForm.value.image" width="360px" alt="property image">
+    </div>
+
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="!propertForm.valid">Submit</button>
+  </form>
+</div>
