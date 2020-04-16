@@ -7,8 +7,10 @@ import { PropertyFormComponent } from './property-form/property-form.component';
 
 const routes: Routes = [
   { path: '', component: PropertyListComponent },
+  { path: 'property-list', component: PropertyListComponent },
   { path: 'property-detail/:id', component: PropertyDetailComponent },
-  { path: 'add-property', component: PropertyFormComponent },
+  { path: 'property-form', component: PropertyFormComponent },
+  { path: 'property-form/:id', component: PropertyFormComponent },
   { path: '**', component: PropertyListComponent }
 ];
 

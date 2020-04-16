@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyService } from './../../services/property.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
@@ -12,7 +14,7 @@ export class PropertyListComponent implements OnInit {
   pageIndex = 0;
   pageSize = 3;
   value;
-  constructor(private service: PropertyService) { }
+  constructor(private service: PropertyService, public router: Router) { }
 
   ngOnInit(): void {
     this.service.getProperties().subscribe((res: any) => { this.properties = res.properties; this.filterResults = res.properties });
@@ -28,5 +30,9 @@ export class PropertyListComponent implements OnInit {
     } else {
       this.filterResults = this.properties.filter(x => x.type.toLowerCase().trim() === term.toLowerCase().trim());
     }
+  }
+
+  goToDetailView(id) {
+    this.router.navigate(['property-detail', id])
   }
 }

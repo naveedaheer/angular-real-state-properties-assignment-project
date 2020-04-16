@@ -5,7 +5,7 @@
           arrow_back
         </span> Back</a>
       <div fxLayout="row" fxLayoutGap="20px">
-        <button mat-button color="primary">Edit</button>
+        <button mat-button color="primary" (click)="router.navigate(['property-form', propertyId])">Edit</button>
         <button mat-button color="warn" (click)="deleteProperty()">Delete</button>
       </div>
     </div>
