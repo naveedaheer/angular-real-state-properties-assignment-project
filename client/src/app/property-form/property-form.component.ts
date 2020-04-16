@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { PropertyService } from './../services/property.service';
 
 @Component({
   selector: 'app-property-form',
@@ -16,8 +17,11 @@ export class PropertyFormComponent implements OnInit {
     refNumber: ['', Validators.required],
     description: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(100)]],
     image: ['', Validators.required]
+
   });
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private service: PropertyService) { }
+
+
 
   ngOnInit(): void {
   }
@@ -39,9 +43,12 @@ export class PropertyFormComponent implements OnInit {
     });
   }
 
-  submit(){
-    console.log("valid", this.propertForm.valid)
-    console.log("value", this.propertForm.value)
+  submit() {
+    this.service.addProperty(this.propertForm.value).subscribe((res: any) => {
+      if (res.success) {
+        this.propertForm.reset()
+      }
+    })
   }
 
 }
